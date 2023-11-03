@@ -1,0 +1,40 @@
+.heading{
+    color:blueviolet
+}
+.listItems{
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+    list-style: none;
+}
+.taskInput{
+    width: 60%;
+    height: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+.addtaskContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-color: rgb(161, 173, 173);
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+    margin: 10px;
+}
+.ItemConatiner{
+    display: flex;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-color: rgb(161, 173, 173);
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+    margin: 10px;
+    width: 60%;
+
+}
