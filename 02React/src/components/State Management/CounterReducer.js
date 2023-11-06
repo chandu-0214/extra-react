@@ -8,11 +8,15 @@ const CountReducer = (state,action)=>{
     console.log("Reducer")
     console.log(state,action)
     // from this function always u should return state
-    switch(action){
+    switch(action.type){
         case "Increment":
-            return state+1 
+            return state+action.payload
         case "Decrement":
-            return state-1 
+            return state-action.payload
+        case "IncrementBy5":
+            return state+action.payload
+        case "Reset":
+            return action.payload
         default:
             return state
     }
@@ -21,12 +25,31 @@ const CountReducer = (state,action)=>{
 const CounterReducer = () => {
     const [state, dispatch] = useReducer(CountReducer, intialState)
     const handleIncrement=()=>{
-        dispatch("Increment")
+        dispatch({
+            type: "Increment",
+            payload:1
+        })
     }
     const handleDecrement=()=>{
-        dispatch("Decrement")
+        dispatch({
+            type: "Decrement",
+            payload:1
+        })
     }
-    const handleReset=()=>{}
+    const handleIncrementBy5=()=>{
+        dispatch({
+            type:"IncrementBy5",
+            payload:5
+        })
+
+    }
+    const handleReset=()=>{
+        dispatch({
+            type:"Reset",
+            payload:0
+
+        })
+    }
     console.log(state)
    
   return (
@@ -37,6 +60,7 @@ const CounterReducer = () => {
         <button onClick={handleIncrement}>Inc</button>
         <button onClick={handleDecrement}>Dec</button>
         <button onClick={handleReset}>Reset</button>
+        <button onClick={handleIncrementBy5}>Increment by 5</button>
 
       </div>
     </div>

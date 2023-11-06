@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import './App.css';
-import CounterReducer from './components/State Management/CounterReducer';
+import CounterReducerTwo from './components/State Management/CounterReducer2';
 
 function App() {
 
   return (
     <div className="App">
-      <CounterReducer/>
+      <CounterReducerTwo/>
 
     </div>
   )
