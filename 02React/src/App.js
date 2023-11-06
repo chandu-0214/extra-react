@@ -1,11 +1,13 @@
+import { useState } from 'react';
 import './App.css';
-import Todo from './components/Hooks/Todo';
+import CounterReducer from './components/State Management/CounterReducer';
 
 function App() {
- 
+
   return (
     <div className="App">
-      <Todo/>
+      <CounterReducer/>
+
     </div>
   )
 }
