@@ -1,14 +1,15 @@
-import './App.css';
-import CounterReducerTwo from './components/State Management/CounterReducer2';
+import "./App.css";
+import Shopping from "./components/State Management/Shopping";
+
+
 
 function App() {
-
   return (
     <div className="App">
-      <CounterReducerTwo/>
-
+      <Shopping />
+      
     </div>
-  )
+  );
 }
 
 export default App;
