@@ -5,7 +5,7 @@ const ProductItem = (props) => {
     const handleAdd=()=>{
         console.log("Add triggered")
         props.dispatch({
-            typeOfAction: "ADD",
+            typeOfAction: "ADD_TO_CART",
             payload: props.product
         })
     }

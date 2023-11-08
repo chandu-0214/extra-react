@@ -18,19 +18,39 @@ const DummyData = [
   const shoppingReducer=(state,action)=>{
     // where the state is updated
     // actions ADD and another REMOVE
-    console.log(action)
-    console.log(state)
     switch(action.typeOfAction){
-        case 'ADD':
+        case 'ADD_TO_CART':
+          // can we check the payload here in state.cartItems
+          const isIncludedInCart = state.cartItems.find(item => item.id === action.payload.id)
+          if(isIncludedInCart){
+            console.log("New code")
+            console.log(isIncludedInCart)
+            const modifyPayload = {...isIncludedInCart,quantity:isIncludedInCart.quantity+1}
+            console.log(modifyPayload)
+            let removePreviousItes = state.cartItems.filter(item => item.id !== isIncludedInCart.id)
+            const newUpadtedState=[...removePreviousItes,modifyPayload]
+            const newUpdatedPrice=0
             return {
-                cartItems:[action.payload],
-                totalPrice:action.payload.price
-              }
-        case "REMOVE":
+              cartItems:newUpadtedState,
+              totalPrice:newUpdatedPrice
+            }
+          }
+          console.log(isIncludedInCart)
+          const updatedCart=[...state.cartItems,action.payload]
+          const updatedTotalPrice= state.totalPrice+action.payload.price
             return {
-                cartItems:[],
-                totalPrice:0
+                cartItems:updatedCart,
+                totalPrice:updatedTotalPrice
               }
+        case "REMOVE_FROM_CART":
+          const updatedCartRemove = state.cartItems.filter(item=>item.id !== action.payload.id)
+          const updatedTotalPriceRemove = state.totalPrice - action.payload.price
+          return {
+            cartItems:updatedCartRemove,
+            totalPrice:updatedTotalPriceRemove
+          }
+
+           
         default:
             return state
     }
