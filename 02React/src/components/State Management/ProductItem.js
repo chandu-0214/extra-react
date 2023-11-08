@@ -1,7 +1,7 @@
 import React from 'react'
-
+import './shopping.css'
 const ProductItem = (props) => {
-    const {quantity,price,name,id}=props.product
+    const {description,price,title,image,rating}=props.product
     const handleAdd=()=>{
         console.log("Add triggered")
         props.dispatch({
@@ -10,11 +10,20 @@ const ProductItem = (props) => {
         })
     }
   return (
-    <li className='list-style'>
-        <div className='d-flex justify-content-between border-3 rounded bg-light p-3 m-3 '>
-            <h2 className=''>{name}</h2>
+    <li className='list-unstyled w-25 '>
+        <div className='d-flex justify-content-between border-3 rounded bg-light p-3 m-3 flex-column'>
+            <div className='d-flex justify-content-between border-3 rounded bg-light p-3 m-3 align-items-center '>
+                <h5 className=''>{title}</h5>
+                <img className="w-auto image-url" src={image}/>
+            </div>
             <p>Rs {price} /-</p>
-            <button onClick={handleAdd} className='btn btn-outline-success '>Add +</button>
+            <p>{description}</p>
+           <div className='d-flex justify-content-between border-3 rounded bg-light p-3 m-3 '>
+            <div>
+                <p>{rating.rate} <span> ( {rating.count} )</span></p>
+            </div>
+           <button onClick={handleAdd} className='btn btn-outline-success '>Add +</button>
+           </div>
         </div>
 
     </li>

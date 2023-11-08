@@ -1,15 +1,12 @@
 import React, { useReducer } from 'react'
 import ProductItem from './ProductItem'
 import CartItems from './CartItems';
+import modifiedDummyData from './data';
 
 
 // Dummy Data is comming from the API
-const DummyData = [
-    { id: Math.random(), name: "Car", price: 100, quantity: 1 },
-    { id: Math.random(), name: "A/C", price: 50, quantity: 1 },
-    { id: Math.random(), name: "Bike", price: 200, quantity: 1 },
-    { id: Math.random(), name: "Train", price: 500, quantity: 1 }
-  ];
+
+  console.log(modifiedDummyData)
   const intialState={
     cartItems:[],
     totalPrice:0
@@ -29,7 +26,7 @@ const DummyData = [
             console.log(modifyPayload)
             let removePreviousItes = state.cartItems.filter(item => item.id !== isIncludedInCart.id)
             const newUpadtedState=[...removePreviousItes,modifyPayload]
-            const newUpdatedPrice=0
+            const newUpdatedPrice=state.totalPrice+action.payload.price
             return {
               cartItems:newUpadtedState,
               totalPrice:newUpdatedPrice
@@ -43,6 +40,21 @@ const DummyData = [
                 totalPrice:updatedTotalPrice
               }
         case "REMOVE_FROM_CART":
+          // can we check the payload here in state.cartItems
+          const isIncludedInCartForRemove = state.cartItems.find(item => item.id === action.payload.id)
+          const {quantity}=isIncludedInCartForRemove
+          if(quantity>1){
+            console.log(isIncludedInCartForRemove)
+            const modifyPayloadRemove = {...isIncludedInCartForRemove,quantity:isIncludedInCartForRemove.quantity-1}
+            let removePreviousItesRemove = state.cartItems.filter(item => item.id !== isIncludedInCartForRemove.id)
+            const modifyCartItem=[...removePreviousItesRemove,modifyPayloadRemove]
+            const modifyPrice= state.totalPrice - action.payload.price
+            return {
+              cartItems:modifyCartItem,
+              totalPrice:modifyPrice
+            }
+          }
+
           const updatedCartRemove = state.cartItems.filter(item=>item.id !== action.payload.id)
           const updatedTotalPriceRemove = state.totalPrice - action.payload.price
           return {
@@ -65,17 +77,17 @@ const Shopping = () => {
         <h2>Shopping</h2>
         <div>
         <h2>Product Page</h2>
-        <ul>
-          {DummyData.map(product=><ProductItem key={product.id}dispatch={dispatch}product={product}/>)}
+        <ul className='d-flex justify-content-center align-items-center flex-wrap'>
+          {modifiedDummyData.map(product=><ProductItem key={product.id}dispatch={dispatch}product={product}/>)}
         </ul>
       </div>
       <div>
         <h2>Cart Page</h2>
         <p>Total Items : {state.cartItems.length}</p>
-        <p>Total Price : {state.totalPrice}</p>
+        <p>Total Price : {Math.round(state.totalPrice)}</p>
         <div>
             Cart items
-            <ul>
+            <ul className='d-flex justify-content-center align-items-center flex-wrap'>
             {state.cartItems.map(product=><CartItems key={product.id} product={product} dispatch={dispatch}/>)}
             </ul>
         </div>
