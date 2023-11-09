@@ -61,8 +61,6 @@ import modifiedDummyData from './data';
             cartItems:updatedCartRemove,
             totalPrice:updatedTotalPriceRemove
           }
-
-           
         default:
             return state
     }
