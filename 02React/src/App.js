@@ -1,12 +1,12 @@
 import "./App.css";
-import Forms from "./components/Hooks/Forms";
+import Interval from "./components/Hooks/Interval";
 
 
 
 function App() {
   return (
     <div className="App">
-      <Forms/>
+      <Interval/>
       
     </div>
   );

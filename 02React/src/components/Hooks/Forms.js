@@ -32,7 +32,7 @@ const Forms = () => {
             <label ref={nameRef} className='p-2 m-2'>Name</label>
             <input ref={inputRef} id="inputName" className='p-2 m-2 form-control-bg-info  w-50'type="text" name="name" onChange={handleInput} />
             <button  ref={buttonRef} onClick={handleButton} className='btn btn-primary'>Click</button>
-             <p>Current State ={"cha"}</p>  {/* // useState */}
+            <p>Current State ={"cha"}</p>  {/* // useState */}
             <p>previous  State ={"ch"}</p>  {/* // useRef */}
         </div>
     </div>
