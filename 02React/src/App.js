@@ -1,13 +1,11 @@
 import "./App.css";
-import Interval from "./components/Hooks/Interval";
-import WikiApp from "./components/Hooks/WikiApp";
-
+import CountriesProject from "./components/Hooks/CountriesProject";
 
 
 function App() {
   return (
     <div className="App">
-      <WikiApp/>
+      <CountriesProject/>
     </div>
   );
 }
