@@ -1,11 +1,11 @@
 import "./App.css";
-import CountriesProject from "./components/Hooks/CountriesProject";
+import Main from "./components/Hooks/Main";
 
 
 function App() {
   return (
     <div className="App">
-      <CountriesProject/>
+      <Main/>
     </div>
   );
 }

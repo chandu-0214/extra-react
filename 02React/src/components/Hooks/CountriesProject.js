@@ -4,6 +4,7 @@ let url = 'https://restcountries.com/v2/all'
 
 const CountriesProject = () => {
     const [countriesData, setCountriesData] = useState([])
+    const [filteredData, setfilteredData] = useState([])
 
 
     useEffect(() => {
@@ -12,15 +13,24 @@ const CountriesProject = () => {
             fetch(url)
          .then((response)=>response.json())
          .then((data)=>{
-            console.log(data)
+          console.log(data)
             setCountriesData(data)
+            setfilteredData(data)
          })
          .catch((error)=>console.log(error,"error"))
          }
          fetchingTheData(url)
 
     },[])
-    const handleInput=()=>{}
+    const handleInput=(event)=>{
+      const inputValue = event.target.value
+      console.log(inputValue)
+      const filteredData = countriesData.filter(country => (country.name).toLowerCase().includes(inputValue.toLowerCase()))
+      setfilteredData(filteredData)
+      console.log(filteredData)
+
+
+    }
     
 
   return (
@@ -31,10 +41,9 @@ const CountriesProject = () => {
             <input onChange={handleInput} type="search" className="form-control p-2 m-2" placeholder="Search Country....."/>
         </div>
         {/* Shimmmer UI */}
-        {console.log(countriesData.length)}
-        {!countriesData.length ?<h1>Loading.....</h1>:<div className='CountryContainer'>
+        {!filteredData.length ?<h1>Loading.....</h1>:<div className='CountryContainer'>
          <ul className='list-unstyled '>
-            {countriesData.map((eachCountry,index)=><CountryCard key={index}eachCountry={eachCountry}/>)}
+            {filteredData.map((eachCountry,index)=><CountryCard countriesData={countriesData} key={index}eachCountry={eachCountry}/>)}
          </ul>
         </div>}
     </div>
