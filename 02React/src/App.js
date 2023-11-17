@@ -1,11 +1,11 @@
 import "./App.css";
-import Main from "./components/Hooks/Main";
+import ProjectLanguage from "./components/Hooks/ProjectLanguage";
 
 
 function App() {
   return (
     <div className="App">
-      <Main/>
+      <ProjectLanguage/>
     </div>
   );
 }
