@@ -4,7 +4,8 @@ import HeaderFile from './HeaderFile'
 const HomeFile = () => {
   return (
     <div>
-        <HeaderFile/>
+      <h2>Home</h2>
+      <HeaderFile/>
     </div>
   )
 }
