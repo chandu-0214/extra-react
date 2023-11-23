@@ -1,11 +1,18 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { UserLoginData } from "../context/userData";
+import { UserCartData, UserLoginData } from "../context/userData";
 
 const HeaderFile = () => {
   const { userName, setuserName } = useContext(UserLoginData);
+  const {state}=useContext(UserCartData)
+
+  const {dispatch}= useContext(UserCartData)
   const handleLogout = () => {
     setuserName(null);
+    dispatch({
+      typeOfAction: "CLEAR_THE_CART"
+  })
+    
   };
   return (
     <div className="d-flex justify-content-around  align-items-center ">
@@ -31,7 +38,7 @@ const HeaderFile = () => {
             <p className="p-1 m-1">Shop</p>
           </Link>
           <Link to="/cart">
-            <p className="p-1 m-1">Cart</p>
+            <p className="p-1 m-1">Cart-{state.cartItems.length}</p>
           </Link>
         </div>
       </div>

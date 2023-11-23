@@ -10,6 +10,7 @@ import { createContext } from "react"
 
 
 export const UserLoginData = createContext("")
+export const UserCartData = createContext(null)
 
 
 

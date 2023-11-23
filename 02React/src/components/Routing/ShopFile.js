@@ -3,6 +3,7 @@ import HeaderFile from './HeaderFile'
 import { useNavigate } from 'react-router'
 import { UserLoginData } from '../context/userData'
 import Shopping from '../State Management/Shopping'
+import ShopPage from './ShopPage'
 
 
 const ShopFile = () => {
@@ -17,8 +18,7 @@ const ShopFile = () => {
   return (
     <div>
         <HeaderFile/>
-        <h2>ShopFile</h2>
-        <Shopping/>
+        <ShopPage/>
 
     </div>
   )

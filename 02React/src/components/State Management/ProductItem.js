@@ -3,7 +3,6 @@ import './shopping.css'
 const ProductItem = (props) => {
     const {description,price,title,image,rating}=props.product
     const handleAdd=()=>{
-        console.log("Add triggered")
         props.dispatch({
             typeOfAction: "ADD_TO_CART",
             payload: props.product

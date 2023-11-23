@@ -71,6 +71,7 @@ import modifiedDummyData from './data';
 const Shopping = () => {
     const [state, dispatch] = useReducer(shoppingReducer, intialState)
   return (
+    
     <div>
         <h2>Shopping</h2>
         <div>
