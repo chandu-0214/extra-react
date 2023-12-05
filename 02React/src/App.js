@@ -1,10 +1,10 @@
 import "./App.css";
-import TestFile from "./components/Styling/TestFileCSS";
+import StyledComponent from "./components/Styling/StyledCoponent";
 
 function App() {
   return (
     <div className="App">
-      <TestFile/>
+      <StyledComponent/>
     </div>
   );
 }
