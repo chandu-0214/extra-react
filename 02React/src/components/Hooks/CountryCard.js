@@ -12,8 +12,6 @@ const CountryCard = (props) => {
         return filteredBorder
       })
       const NamesBorder = broderData.map(eachItem=>eachItem[0].name)
-      console.log(NamesBorder)
-
       return NamesBorder
     }
   return (

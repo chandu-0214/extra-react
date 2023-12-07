@@ -1,38 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import CountryCard from './CountryCard'
+import useHttpRequest from './useHttpRequest'
 let url = 'https://restcountries.com/v2/all'
 
 const CountriesProject = () => {
     const [countriesData, setCountriesData] = useState([])
     const [filteredData, setfilteredData] = useState([])
+    const [data,isLoading]=useHttpRequest(url)
+    console.log(data,isLoading)
 
+    useEffect(() =>{
+      console.log("data recieved ")
+      setfilteredData(data)
+      setCountriesData(data)
+    },[data])
 
-    useEffect(() => {
-        // side effects
-        const fetchingTheData = (url)=>{
-            fetch(url)
-         .then((response)=>response.json())
-         .then((data)=>{
-          console.log(data)
-            setCountriesData(data)
-            setfilteredData(data)
-         })
-         .catch((error)=>console.log(error,"error"))
-         }
-         fetchingTheData(url)
-
-    },[])
     const handleInput=(event)=>{
       const inputValue = event.target.value
-      console.log(inputValue)
       const filteredData = countriesData.filter(country => (country.name).toLowerCase().includes(inputValue.toLowerCase()))
       setfilteredData(filteredData)
-      console.log(filteredData)
-
-
     }
     
-
   return (
     <div>
         <h2 className='text-bg-info  p-4 m-4 w-col-6 rounded-5 '>Countries Page</h2>
@@ -41,7 +29,7 @@ const CountriesProject = () => {
             <input onChange={handleInput} type="search" className="form-control p-2 m-2" placeholder="Search Country....."/>
         </div>
         {/* Shimmmer UI */}
-        {!filteredData.length ?<h1>Loading.....</h1>:<div className='CountryContainer'>
+        {!isLoading ?<h1>Loading.....</h1>:<div className='CountryContainer'>
          <ul className='list-unstyled '>
             {filteredData.map((eachCountry,index)=><CountryCard countriesData={countriesData} key={index}eachCountry={eachCountry}/>)}
          </ul>

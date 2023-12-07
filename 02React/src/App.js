@@ -1,10 +1,12 @@
 import "./App.css";
-import StyledComponent from "./components/Styling/StyledCoponent";
+import CountriesProject from "./components/Hooks/CountriesProject";
+import Todo from "./components/Hooks/Todo";
 
 function App() {
   return (
     <div className="App">
-      <StyledComponent/>
+      {/* <Todo/> */}
+      <CountriesProject/>
     </div>
   );
 }

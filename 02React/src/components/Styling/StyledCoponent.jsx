@@ -11,6 +11,7 @@ import { CircularProgress } from "@mui/material";
 import { pink } from "@mui/material/colors";
 import SvgIcon from "@mui/material/SvgIcon";
 import ComboBox from "./DropDown";
+import BasicTabs from "./TbFromMUI";
 
 const StyledComponent = () => {
   function HomeIcon(props) {
@@ -55,6 +56,8 @@ const StyledComponent = () => {
       </div>
 
       <ComboBox/>
+
+      <BasicTabs/>
     </StylesContainer>
   );
 };
