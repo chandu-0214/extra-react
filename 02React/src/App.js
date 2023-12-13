@@ -1,12 +1,10 @@
 import "./App.css";
-import CountriesProject from "./components/Hooks/CountriesProject";
-import Todo from "./components/Hooks/Todo";
+import OptCounter from "./components/Optimising/OptCounter";
 
 function App() {
   return (
     <div className="App">
-      {/* <Todo/> */}
-      <CountriesProject/>
+    <OptCounter/>
     </div>
   );
 }
