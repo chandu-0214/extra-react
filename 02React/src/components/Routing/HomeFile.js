@@ -4,7 +4,9 @@ import HeaderFile from './HeaderFile'
 const HomeFile = () => {
   return (
     <div>
-      <h2>Home</h2>
+      <h1 className="text-3xl font-bold underline">
+      Home
+    </h1>
       <HeaderFile/>
     </div>
   )

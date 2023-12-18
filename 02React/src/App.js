@@ -1,10 +1,10 @@
 import "./App.css";
-import OptCounter from "./components/Optimising/OptCounter";
+import ProjectShopping from "./components/Routing/ProjectShopping";
 
 function App() {
   return (
     <div className="App">
-    <OptCounter/>
+    <ProjectShopping/>
     </div>
   );
 }
